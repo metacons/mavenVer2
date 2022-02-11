@@ -36,7 +36,7 @@ jobs:
       run: |  
         commits=${{join(github.event.commits.message, ', ') }}  
         echo $commits
-        
+       
         commits=join(${{ github.event.commits.\*.message }}, ', ')  
         echo $commits  
   
@@ -46,7 +46,6 @@ jobs:
         echo 'end of commit message'
  
  build:
-
     runs-on: ubuntu-latest
 
     steps:
