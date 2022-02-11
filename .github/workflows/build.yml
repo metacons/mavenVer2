@@ -22,7 +22,12 @@ jobs:
       run: |  
         commits=${{join(github.event.commits.message, ', ') }}  
         echo $commits
+         commits=join(${{ github.event.commits.message }}, ', ')  
+        echo $commits  
+        commits=join(github.event.commits.message, ', ')  
+        echo $commits
         echo 'end of commit message'
+        
 
   build:
 
