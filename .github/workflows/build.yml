@@ -5,11 +5,25 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - develop
   pull_request:
-    branches: [ master ]
+    branches: 
+      - master
+      - develop
+    
 
 jobs:
+  version-update:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Test 
+      run: |  
+        commits=${{join(github.event.commits.message, ', ') }}  
+        echo $commits
+        echo 'end of commit message'
+
   build:
 
     runs-on: ubuntu-latest
