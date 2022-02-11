@@ -20,7 +20,8 @@ jobs:
    steps:
     - name: Test 
       run: |
-        commits=${{join(github.event.commits.\*.message, ', ') }} echo $commits
+        commits=${{join(github.event.commits.\*.message, ', ') }} 
+        echo $commits
 
   build:
 
