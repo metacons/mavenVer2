@@ -34,15 +34,8 @@ jobs:
    steps:
     - name: Test 
       run: |  
-        commits=${{join(github.event.commits.message, ', ') }}  
-        echo $commits
-        commits=join(${{ github.event.commits.message }}, ', ')  
-        echo $commits  
-        commits=join(github.event.commits.message, ', ')  
-        echo $commits
-        echo 'end of commit message'
-        msg="${{ github.event.head_commit.message }}"
-        echo "::set-env name=COMMIT_MESSAGE::$msg"
+        msg=${{ github.event.head_commit.message }}
+        echo $msg
  
  build:
     runs-on: ubuntu-latest
