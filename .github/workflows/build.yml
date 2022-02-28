@@ -8,6 +8,8 @@ on:
     branches:
       - master
       - develop
+    tags:
+      - '*.*.*'
   pull_request:
     branches: 
       - master
@@ -29,7 +31,7 @@ jobs:
           
   
  
- build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
