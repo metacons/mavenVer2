@@ -17,22 +17,19 @@ on:
 jobs:
   version-check:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Latest Commit
+        uses: actions/checkout@v2
+
+      - name: Bump Version
+        id: bump
+        uses: nnichols/maven-version-bump-action@v3
         with:
-          token: ${{ secrets.github_token }}
-      - name: Set output
-           
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - name: Check output
-        env:
-          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
-        run: |
-          echo $RELEASE_VERSION
-          echo ${{ steps.vars.outputs.tag }} 
-          echo ${{ secrets.github_token }}
-          mvn -B versions:set -DnewVersion=$RELEASE_VERSION -DgenerateBackupPoms=false
+          github-token: ${{ secrets.github_token }}
+
+      - name: Print Version
+        run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
  
   
  
