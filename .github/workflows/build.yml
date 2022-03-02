@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          github-token: ${{ secrets.github_token }}
+          token: ${{ secrets.github_token }}
       - name: Set output
            
         id: vars
