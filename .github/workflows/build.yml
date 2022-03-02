@@ -32,7 +32,6 @@ jobs:
         run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
 
  
- 
   build:
     runs-on: ubuntu-latest
 
