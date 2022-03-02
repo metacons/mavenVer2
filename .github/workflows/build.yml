@@ -35,7 +35,6 @@ jobs:
           echo ${{ secrets.github_token }}
           mvn -B versions:set -DnewVersion=$RELEASE_VERSION -DgenerateBackupPoms=false
  
-  
  
   build:
     runs-on: ubuntu-latest
