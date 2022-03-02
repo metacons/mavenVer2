@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: 'mavenVer2'
+          repository: 'metacons/mavenVer2'
           token: ${{ secrets.github_token }}
       - name: Set output
            
